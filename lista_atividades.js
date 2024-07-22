@@ -1,7 +1,5 @@
 const prompt = require ('prompt-sync')()
-
 const atividades = []
-
 const modelo_registro = () => {
     let atividade = {
         dia: "",
@@ -26,6 +24,7 @@ const criar = atividade => {
     atividade.push(atividade)
     console.log("Informação salva!")
 }
+
 const listar = () => {
     atividades.forEach((atividade, indice) => {
         console.log(`${indice++} ${atividade}`)
@@ -36,12 +35,18 @@ const atualizar = () => {
     listar()
     let indice = prompt("Qual indice deseja atualizar?")
     let atividade = modelo_registro()
-
     atividades [--indice] = atividade
 }
+
 const remover = () => {
     listar()
     let indice = prompt("Qual indice deseja remover?")
-
     atividades.splice(--indice, 1)
+}
+
+module.exports = {
+    criar,
+    atualizar,
+    remover,
+    listar
 }
